@@ -1,0 +1,24 @@
+{
+  "name": "vue-visited",
+  "version": "1.0.0",
+  "description": "Add class to clicked elements",
+  "main": "v-visited.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronlui/vue-visited.git"
+  },
+  "keywords": [
+    "vue",
+    "visited",
+    "vue-visited"
+  ],
+  "author": "Aaron Lui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronlui/vue-visited/issues"
+  },
+  "homepage": "https://github.com/aaronlui/vue-visited#readme"
+}
