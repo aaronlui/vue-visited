@@ -117,31 +117,6 @@ vueVisited.install = function(Vue, options) {
       const { value, modifiers } = binding
       const { page, key, id } = value
       const { noClick } = modifiers
-      const originalClick = el.onclick // 保存原始的点击事件处理函数
-      const { className } = vueVisited.config
-
-      if (page && key && id) {
-        if (vueVisited.visitedData[page] && vueVisited.visitedData[page][key] && vueVisited.visitedData[page][key].includes(id)) {
-          addClass(el, className)
-        }
-
-        el.onclick = function() {
-          if (!noClick) {
-            setVisitedData(vueVisited.visitedData, page, key, id)
-            addClass(el, className)
-          }
-
-          if (originalClick) {
-            originalClick()
-          }
-        }
-      } else {
-        throw new Error(`need options! Like v-visted="{ page: 'page', key: 'key', id: 'id' }"`)
-      }
-    },
-    update(el, binding) {
-      const { value } = binding
-      const { page, key, id } = value
       const { className } = vueVisited.config
 
       if (page && key && id) {
@@ -150,6 +125,38 @@ vueVisited.install = function(Vue, options) {
         } else {
           removeClass(el, className)
         }
+
+        el.onclick = function() {
+          if (!noClick) {
+            setVisitedData(vueVisited.visitedData, page, key, id)
+            addClass(el, className)
+          }
+        }
+      } else {
+        throw new Error(`need options! Like v-visted="{ page: 'page', key: 'key', id: 'id' }"`)
+      }
+    },
+    update(el, binding) {
+      const { value, modifiers } = binding
+      const { page, key, id } = value
+      const { noClick } = modifiers
+      const { className } = vueVisited.config
+
+      if (page && key && id) {
+        if (vueVisited.visitedData[page] && vueVisited.visitedData[page][key] && vueVisited.visitedData[page][key].includes(id)) {
+          addClass(el, className)
+        } else {
+          removeClass(el, className)
+        }
+
+        el.onclick = function() {
+          if (!noClick) {
+            setVisitedData(vueVisited.visitedData, page, key, id)
+            addClass(el, className)
+          }
+        }
+      } else {
+        throw new Error(`need options! Like v-visted="{ page: 'page', key: 'key', id: 'id' }"`)
       }
     }
   })
