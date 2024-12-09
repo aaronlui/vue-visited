@@ -1,6 +1,6 @@
 {
   "name": "vue-visited",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Add class to clicked elements",
   "main": "v-visited.js",
   "scripts": {
