@@ -100,7 +100,7 @@ vueVisited.install = function(Vue, options) {
       data[page][key].push(id)
     }
 
-    data.expires = expires && typeof expires === 'number' ? new Date().getTime() + expires * 24 * 60 * 60 * 1000 : ''
+    data.expires = expires && typeof expires === 'number' ? new Date().getTime() + expires * 60 * 60 * 1000 : ''
     localStorage.setItem(name, JSON.stringify(data))
   }
 
